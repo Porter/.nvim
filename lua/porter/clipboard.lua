@@ -9,8 +9,7 @@ end
 -- Works on OS X but for a chromebook you'd likely need to do something like
 -- https://sunaku.github.io/tmux-yank-osc52.html
 function M.CopyTo(text)
-        vim.cmd([[let @+=]] .. vim.fn.shellescape(text))
+        vim.fn.setreg("+", text)
 end
 
 return M
-

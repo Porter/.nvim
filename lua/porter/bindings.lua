@@ -74,8 +74,8 @@ function M.setup()
         vim.keymap.set('n', '<leader>on', ':e ~/notes.txt<cr>', {noremap = true}) -- open notes
 
         -- Copy
-        vim.keymap.set('n', '<leader>fy', ':lua R("porter.clipboard").CopyTo(vim.fn.expand("%"), true)<cr>', {noremap = true}) -- filename to clipboard
-        vim.keymap.set('v', '<leader>y', '"+y:lua R("porter.clipboard").CopyTo(vim.fn.getreg("+"))<cr>', {noremap = true}) -- visual mode contents to clipboard
+        vim.keymap.set('n', '<leader>fy', '<cmd>call setreg("+", expand("%"))<cr>', {noremap = true}) -- filename to clipboard
+        vim.keymap.set('v', '<leader>y', '"+y<esc>', {noremap = true}) -- visual mode contents to clipboard
 
         -- Paste Mode toggle
         vim.keymap.set('n', '<leader>p', ':set paste!<cr>:echo "paste mode: ". &paste<cr>', {noremap = true})
