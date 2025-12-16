@@ -1,6 +1,6 @@
 local M = {}
 
--- opts["workspaceFunc"] -> workspace ID (string)
+-- opts["workspaceFunc"] -> () -> workspace ID (string)
 function M.setup(opts)
         -- Options.
         vim.o.relativenumber = true
@@ -30,7 +30,11 @@ function M.setup(opts)
 
         vim.keymap.set('n', '<leader>et', '<cmd>e ~/todo.txt<cr><cmd>colorscheme init<cr>', {noremap = true})
         vim.keymap.set('n', '<leader>ot', function ()
-               if opts["workspaceFunc"] ~= nil then vim.cmd("edit ~/" .. opts["workspaceFunc"]() .. "/todo.txt") end
+               if opts["workspaceFunc"] ~= nil then
+                        local workspace_dir = "~/" .. opts["workspaceFunc"]()
+                        vim.cmd("!mkdir " .. workspace_dir)
+                        vim.cmd("edit " .. workspace_dir .. "/todo.txt")
+                end
         end, {noremap = true})
 
         vim.keymap.set('n', '<leader>fg', '<cmd>lua gofmt()<cr>', {noremap = true})
