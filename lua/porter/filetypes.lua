@@ -17,6 +17,9 @@ function M.setup(opts)
                                         if opts['spaces'] ~= nil and opts['spaces'] == false then
                                                 vim.opt_local.expandtab = false
                                         end
+                                        if opts['tabs'] ~= nil and opts['tabs'] == true then
+                                                vim.opt_local.expandtab = false
+                                        end
                                         if opts['shiftwidth'] ~= nil then
                                                 vim.opt_local.shiftwidth = opts['shiftwidth']
                                         end
