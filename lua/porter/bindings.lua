@@ -32,7 +32,7 @@ function M.setup(opts)
         vim.keymap.set('n', '<leader>ot', function ()
                if opts["workspaceFunc"] ~= nil then
                         local workspace_dir = "~/" .. opts["workspaceFunc"]()
-                        vim.cmd("!mkdir " .. workspace_dir)
+                        vim.cmd("!mkdir -p " .. workspace_dir)
                         vim.cmd("edit " .. workspace_dir .. "/todo.txt")
                 end
         end, {noremap = true})
