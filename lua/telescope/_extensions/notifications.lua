@@ -135,7 +135,6 @@ local function list_notifications_picker(opts)
   }):find()
 end
 
-print("registering")
 return telescope.register_extension({
   exports = {
     notifications = list_notifications_picker,
