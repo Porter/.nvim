@@ -1,0 +1,12 @@
+[Unit]
+Description=Notification Daemon (tmux + neovim)
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /usr/local/google/home/phaet/notification_daemon/daemon.py
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=default.target
